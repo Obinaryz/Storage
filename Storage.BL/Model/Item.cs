@@ -58,7 +58,11 @@ namespace Storage.BL.Model
 
         public override string ToString()
         {
-            return $"{Name} - {CountOrWeight}";
+            return $"{Name}-{CountOrWeight}";
+        }
+        public double Sell(double countsell)
+        {
+            return (CountOrWeight - countsell);
         }
     }
 }
