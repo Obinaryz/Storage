@@ -60,9 +60,6 @@ namespace Storage.BL.Model
         {
             return $"{Name}-{CountOrWeight}";
         }
-        public double Sell(double countsell)
-        {
-            return (CountOrWeight - countsell);
-        }
+
     }
 }
