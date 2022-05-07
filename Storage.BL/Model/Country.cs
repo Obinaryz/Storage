@@ -1,8 +1,9 @@
 ﻿using System;
 namespace Storage.BL.Model
 {/// <summary>
-/// Страна производитель
+/// Страна
 /// </summary>
+    [Serializable]
     public class Country
     {/// <summary>
     /// Название страны
@@ -11,7 +12,7 @@ namespace Storage.BL.Model
         /// <summary>
         /// Добавить новую страну
         /// </summary>
-        /// <param name="name">Название страны производителя</param>
+        /// <param name="name">Название страны </param>
         public Country(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
