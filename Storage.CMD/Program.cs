@@ -20,8 +20,8 @@ namespace Storage.CMD
                 var idWorker = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите Страну Работника: ");
                 var countryWorker = Console.ReadLine();
-                DateTime contractDate;
-                contractDate = ParseDateTime();
+                Console.WriteLine("Введите дату окончания контракта работника (dd.MM.yyyy): ");
+                DateTime contractDate = ParseDateTime();
 
                 userController.SetNewWorkerData(idWorker, contractDate, countryWorker);
             }
@@ -29,26 +29,26 @@ namespace Storage.CMD
             Console.ReadLine();
         }
         /// <summary>
-        /// Ввод и проверка формата даты окончания контракта
+        /// проверка формата даты
         /// </summary>
-        /// <returns>дата окончания контракта в формате DateTime</returns>
+        /// <returns>дата в формате DateTime</returns>
         private static DateTime ParseDateTime()
         {
-            DateTime contractDate;
+            DateTime DateFormat;
             while (true)
             {
-                Console.WriteLine("Введите дату окончания контракта работника (dd.MM.yyyy): ");
-                if (DateTime.TryParse(Console.ReadLine(), out contractDate))
+                if (DateTime.TryParse(Console.ReadLine(), out DateFormat))
                 {
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Неверный формат даты");
+                    Console.WriteLine("Неверный формат даты.");
+                    Console.WriteLine("Введите дату еще раз: ");
                 }
             }
 
-            return contractDate;
+            return DateFormat;
         }
     }
 }

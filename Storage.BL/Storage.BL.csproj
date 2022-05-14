@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Storage.BL</RootNamespace>
     <AssemblyName>Storage.BL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +39,10 @@
     <Compile Include="Model\Country.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Sell.cs" />
+    <Compile Include="Controller\SellController.cs" />
+    <Compile Include="Controller\ControllerBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
