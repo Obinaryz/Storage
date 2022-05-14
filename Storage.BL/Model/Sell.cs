@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Storage.BL.Model
 {
+    [Serializable]
     /// <summary>
     /// продажа товара
     /// </summary>

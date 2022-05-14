@@ -1,6 +1,7 @@
 ﻿using System;
 namespace Storage.BL.Model
 {
+    [Serializable]
     public class Item
     {
         public string Name { get; }
