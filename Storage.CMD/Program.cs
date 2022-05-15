@@ -1,34 +1,37 @@
 ﻿using System;
+using System.Globalization;
 using Storage.BL.Controller;
 using Storage.BL.Model;
-
+using System.Resources;
 namespace Storage.CMD
 {
     class MainClass
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Привет!");
+            var culture = CultureInfo.CreateSpecificCulture("ru");
+            var resourceManager = new ResourceManager("Storage.CMD.Languages.Messages",typeof(MainClass).Assembly);
+            Console.WriteLine(resourceManager.GetString("Hello",culture));
 
-            Console.WriteLine("Введите имя пользователя: ");
+            Console.WriteLine(resourceManager.GetString("EnterName",culture));
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
             var sellController = new SellController(userController.CurrentUser);
             if (userController.IsNewUser == true)
             {
-                Console.WriteLine("Введите id Работника: ");
+                Console.WriteLine(resourceManager.GetString("WorkerId",culture)) ;
                 var idWorker = int.Parse(Console.ReadLine());
-                Console.WriteLine("Введите Страну Работника: ");
+                Console.WriteLine(resourceManager.GetString("WorkerCountry",culture));
                 var countryWorker = Console.ReadLine();
-                DateTime contractDate = ParseDateTime("окончания контракта работника");
+                DateTime contractDate = ParseDateTime(resourceManager.GetString("ContractData",culture));
 
                 userController.SetNewWorkerData(idWorker, contractDate, countryWorker);
             }
             Console.WriteLine(userController.CurrentUser);
 
-            Console.WriteLine("Что вы хотите сделать?");
-            Console.WriteLine("Е - ввести прием пищи");
+            Console.WriteLine(resourceManager.GetString("WhatWant",culture));
+            Console.WriteLine(resourceManager.GetString("EnterrSell",culture));
             var key = Console.ReadKey();
             if (key.Key == ConsoleKey.E)
             {
@@ -45,7 +48,7 @@ namespace Storage.CMD
 
         private static Item EnterSellItem()
         {
-            Console.WriteLine("Введите имя товара: ");
+            Console.WriteLine("Введите имя товара: ");//TODO: localization
             var item = Console.ReadLine();
             var price = ParseDouble("цену");
             var weight = ParseDouble("массу");
