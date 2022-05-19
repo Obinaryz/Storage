@@ -47,6 +47,9 @@
     <Compile Include="Model\Sell.cs" />
     <Compile Include="Controller\SellController.cs" />
     <Compile Include="Controller\ControllerBase.cs" />
+    <Compile Include="Model\Work.cs" />
+    <Compile Include="Model\WorkTime.cs" />
+    <Compile Include="Controller\WorkTimeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
