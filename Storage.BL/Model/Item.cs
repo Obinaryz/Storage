@@ -47,7 +47,7 @@ namespace Storage.BL.Model
             }
             if (shelfLife < DateTime.Now)
             {
-                throw new ArgumentException("Срок годности не может быть просрочен", nameof(shelfLife));
+                throw new ArgumentException("Срок годности не может быть истекшим", nameof(shelfLife));
             }
             if (country == null)
             {

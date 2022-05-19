@@ -9,7 +9,7 @@ namespace Storage.CMD
     {
         public static void Main(string[] args)
         {
-            var culture = CultureInfo.CreateSpecificCulture("ru");
+            var culture = CultureInfo.CreateSpecificCulture("en-us");
             var resourceManager = new ResourceManager("Storage.CMD.Languages.Messages",typeof(MainClass).Assembly);
             Console.WriteLine(resourceManager.GetString("Hello",culture));
 
