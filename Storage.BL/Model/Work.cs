@@ -4,9 +4,13 @@ namespace Storage.BL.Model
     [Serializable]
     public class Work
     {
+        public int Id { get; set; }
+
         public string Name { get; }
 
         public double Kpi { get; }
+
+        public Work() { }
 
         public Work(string name,double kpi)
         {

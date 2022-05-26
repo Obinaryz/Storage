@@ -9,18 +9,23 @@ namespace Storage.BL.Model
     /// продажа товара
     /// </summary>
     public class Sell
-    {   /// <summary>
+    {
+        public int UserId { get; set; }
+        public int Id { get; set; }
+        /// <summary>
         /// Время продажи
         /// </summary>
-        public DateTime SellMoment { get; }
+        public DateTime SellMoment { get; set; }
         /// <summary>
         /// Товар и вес
         /// </summary>
-        public Dictionary<Item,double> Items { get; }
+        public Dictionary<Item,double> Items { get; set; }
         /// <summary>
         /// Продавец
         /// </summary>
-        public User Seller { get; }
+        public virtual  User Seller { get; set; }
+
+        public Sell() { }
         /// <summary>
         /// Продажа товара
         /// </summary>

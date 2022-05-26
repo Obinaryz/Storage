@@ -67,7 +67,6 @@ namespace Storage.CMD
 
                 }
             }
-            Console.ReadLine();
         }
 
         private static WorkTime EnterWorkTime()

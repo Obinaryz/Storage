@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Storage.BL.Model
 {/// <summary>
 /// Страна
 /// </summary>
     [Serializable]
     public class Country
-    {/// <summary>
-    /// Название страны
-    /// </summary>
-        public string Name { get; }
+    {
+        public int Id { get; set; }
+        /// <summary>
+        /// Название страны
+        /// </summary>
+        public string Name { get; set; }
         /// <summary>
         /// Добавить новую страну
         /// </summary>
@@ -23,6 +27,7 @@ namespace Storage.BL.Model
             Name = name;
         }
 
+        public Country() { }
         public override string ToString()
         {
             return  Name;

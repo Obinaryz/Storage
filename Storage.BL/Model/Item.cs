@@ -4,23 +4,28 @@ namespace Storage.BL.Model
     [Serializable]
     public class Item
     {
-        public string Name { get; }
+
+        public int Id { get; set; }
+        /// <summary>
+        /// Имя товара
+        /// </summary>
+        public string Name { get; set; }
         /// <summary>
         /// Количество товара
         /// </summary>
-        public double WeightOrCount { get; }
+        public double WeightOrCount { get; set; }
         /// <summary>
         /// Цена Товара за штуку или килограмм
         /// </summary>
-        public double Price { get; }
+        public double Price { get; set; }
         /// <summary>
         /// Срок годности
         /// </summary>
-        public DateTime ShelfLife { get; }
+        public DateTime ShelfLife { get; set; }
         /// <summary>
         /// Страна производитель
         /// </summary>
-        public Country Country { get; }
+        public Country Country { get; set; }
         public Item(string name) : this(name,0,0,DateTime.Now,new Country("Self")) { }
         /// <summary>
         /// Добавление товара на склад товара на склад
@@ -59,6 +64,9 @@ namespace Storage.BL.Model
             ShelfLife = shelfLife;
             Country = country;
         }
+
+        public Item() { }
+
         public override string ToString()
         {
             return Name;

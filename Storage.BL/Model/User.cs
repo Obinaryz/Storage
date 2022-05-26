@@ -3,14 +3,15 @@ namespace Storage.BL.Model
 {/// <summary>
 /// Товар
 /// </summary>
-[Serializable]
+    [Serializable]
     public class User
     {
         #region Свойства
+        public int Id { get; set; }
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary>
         /// ID сотрудника
         /// </summary>
@@ -18,19 +19,18 @@ namespace Storage.BL.Model
         /// <summary>
         /// Страна 
         /// </summary>
-        public Country Country { get; set; }
+        public int? Country_Id { get; set; }
         /// <summary>
         /// Дата окончания контракта
         /// </summary>
         public DateTime ContractDate { get; set; }
-        #endregion
-
-
         /// <summary>
         /// Сколько еще лет будет действовать контракт
         /// </summary>
         public int ContractTerm { get { return ContractDate.Year - DateTime.Now.Year; } }
+        #endregion
 
+        public User() { }
 
         /// <summary>
         /// Добавить нового пользователя
@@ -43,9 +43,8 @@ namespace Storage.BL.Model
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя товара не может быть пустым", nameof(name));
+                throw new ArgumentNullException("Имя не может быть пустым", nameof(name));
             }
-
             Name = name;
         }
         public User(string name, int workerid,DateTime contractDate,Country country)
@@ -53,7 +52,7 @@ namespace Storage.BL.Model
             #region Проверка входных условий
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Имя товара не может быть пустым",nameof(name));
+                throw new ArgumentNullException("Имя не может быть пустым",nameof(name));
             }
             if (contractDate < DateTime.Now)
             {
@@ -71,7 +70,6 @@ namespace Storage.BL.Model
             Name = name;
             WorkerId = workerid;
             ContractDate = contractDate;
-            Country = country;
         }
 
         public override string ToString()

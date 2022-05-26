@@ -4,10 +4,21 @@ namespace Storage.BL.Model
     [Serializable]
     public class WorkTime
     {
-        public DateTime Start { get; }
-        public DateTime Finish { get; }
-        public Work Work { get; }
-        public User User { get; }
+        public int Id { get; set; }
+
+        public DateTime Start { get; set; }
+
+        public DateTime Finish { get; set; }
+
+        public int WorkId { get; set; }
+
+        public Work Work { get; set; }
+
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
+
+        public WorkTime() { }
 
         public WorkTime(DateTime start,DateTime finish,Work work,User user)
         {
