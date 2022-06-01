@@ -271,6 +271,7 @@
     <Compile Include="Controller\SerialaizingDataSave.cs" />
     <Compile Include="Controller\DatabaseDataSave.cs" />
     <Compile Include="Controller\StorageContext.cs" />
+    <Compile Include="Controller\CountryController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

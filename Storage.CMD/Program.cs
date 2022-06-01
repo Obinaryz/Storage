@@ -35,6 +35,7 @@ namespace Storage.CMD
             while (true) { 
                 Console.WriteLine(resourceManager.GetString("WhatWant",culture));
                 Console.WriteLine(resourceManager.GetString("EnterrSell",culture));
+                Console.WriteLine("C - ввести новую страну");
                 Console.WriteLine("W - ввести работу");
                 Console.WriteLine("Q - выход");
             
@@ -49,7 +50,11 @@ namespace Storage.CMD
                         Console.WriteLine($"\t{product.Key} - {product.Value}");
                     }
                         break;
-
+                    case ConsoleKey.C:
+                        Console.WriteLine("введите название страны");
+                        var nameCountry = Console.ReadLine();
+                        var countryController = new CountryController(nameCountry);
+                        break;
                     case ConsoleKey.W:
                         var workedTime = EnterWorkTime();
                         var workTime = new WorkTime(workedTime.Start,workedTime.Finish,workedTime.Work,userController.CurrentUser);
